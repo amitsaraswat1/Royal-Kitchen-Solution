@@ -3,8 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MessageCircle, ArrowUp } from "lucide-react";
+import { Phone, Mail, ArrowUp } from "lucide-react";
 import { BUSINESS_INFO, NAV_LINKS, SERVICES_DATA } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -105,7 +106,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <WhatsAppIcon className="w-4 h-4 fill-emerald-400 shrink-0" />
                 <a
                   href={BUSINESS_INFO.whatsappUrl}
                   target="_blank"

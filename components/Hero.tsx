@@ -2,8 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import { Phone, MessageCircle, CalendarCheck2, ShieldCheck, Wrench, Sparkles } from "lucide-react";
+import { Phone, CalendarCheck2, ShieldCheck, Wrench, Sparkles } from "lucide-react";
 import { BUSINESS_INFO, TRUST_INDICATORS } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Hero() {
   return (
@@ -74,7 +75,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm sm:text-base transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus-visible-gold min-h-[48px] active:scale-95"
             >
-              <MessageCircle className="w-5 h-5 fill-white" />
+              <WhatsAppIcon className="w-5 h-5 fill-white" />
               <span>WhatsApp Booking</span>
             </a>
 
@@ -98,7 +99,7 @@ export default function Hero() {
                 <div className="flex items-center gap-1.5 mb-1 min-w-0">
                   {idx === 0 && <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-royal-gold shrink-0" />}
                   {idx === 1 && <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-royal-gold shrink-0" />}
-                  {idx === 2 && <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-royal-gold shrink-0" />}
+                  {idx === 2 && <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-royal-gold shrink-0" />}
                   {idx === 3 && <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-royal-gold shrink-0" />}
                   <span className="font-semibold text-[11px] sm:text-sm text-white truncate">
                     {indicator.label}

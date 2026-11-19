@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { Check, MessageCircle, AlertCircle, Sparkles } from "lucide-react";
+import { Check, AlertCircle, Sparkles } from "lucide-react";
 import { PRICING_DATA, BUSINESS_INFO, PricingItem } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Pricing() {
   const getWhatsAppPricingLink = (title: string, priceDisplay: string) => {
@@ -89,18 +90,14 @@ export default function Pricing() {
                 </ul>
               </div>
 
-              {/* Action Button */}
+              {/* Action Button: All yellow/gold as requested */}
               <a
                 href={getWhatsAppPricingLink(plan.title, plan.priceDisplay)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm sm:text-base transition-all duration-200 focus:outline-none focus-visible-gold min-h-[48px] ${
-                  plan.popular
-                    ? "bg-royal-gold hover:bg-warm-gold text-royal-black shadow-gold"
-                    : "bg-royal-black hover:bg-royal-dark text-white border border-royal-border hover:border-royal-gold"
-                }`}
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm sm:text-base transition-all duration-200 focus:outline-none focus-visible-gold min-h-[48px] bg-royal-gold hover:bg-warm-gold text-royal-black shadow-gold hover:shadow-gold-glow active:scale-95"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-5 h-5 fill-royal-black" />
                 <span>Book Now</span>
               </a>
             </div>

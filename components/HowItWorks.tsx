@@ -41,9 +41,9 @@ export default function HowItWorks() {
                 key={step.stepNumber}
                 className="bg-royal-surface rounded-2xl p-6 border border-gray-200/80 hover:border-royal-gold/50 transition-all duration-300 flex flex-col items-center text-center group shadow-sm hover:shadow-md"
               >
-                {/* Step badge & icon */}
+                {/* Step badge & icon: White box with gold border as requested */}
                 <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-royal-black border-2 border-royal-gold flex items-center justify-center shadow-gold group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-white border-2 border-royal-gold flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
                     {iconMap[step.iconName] || <CheckCircle2 className="w-6 h-6 text-royal-gold" />}
                   </div>
                   <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-royal-gold text-royal-black text-xs font-bold flex items-center justify-center shadow">

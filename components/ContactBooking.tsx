@@ -4,15 +4,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import {
   Phone,
-  MessageCircle,
   Mail,
   Clock,
-  Send,
   CheckCircle2,
   AlertCircle,
   ShieldCheck,
 } from "lucide-react";
 import { BUSINESS_INFO, SERVICE_OPTIONS } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 interface FormState {
   name: string;
@@ -111,7 +110,7 @@ export default function ContactBooking() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-surface border border-royal-gold/30 text-royal-gold text-xs sm:text-sm font-semibold mb-4">
-            <MessageCircle className="w-4 h-4 text-royal-gold" />
+            <WhatsAppIcon className="w-4 h-4 fill-royal-gold" />
             <span>Connect &amp; Schedule</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-royal-black tracking-tight mb-4">
@@ -176,7 +175,7 @@ export default function ContactBooking() {
                 {/* WhatsApp */}
                 <div className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-xl bg-royal-dark border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
-                    <MessageCircle className="w-5 h-5 fill-emerald-500" />
+                    <WhatsAppIcon className="w-5 h-5 fill-emerald-500" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">
@@ -407,7 +406,7 @@ export default function ContactBooking() {
                     type="submit"
                     className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-royal-gold hover:bg-warm-gold text-royal-black font-bold text-base transition-all duration-200 shadow-gold hover:shadow-gold-glow focus:outline-none focus-visible-gold min-h-[50px] active:scale-[0.98]"
                   >
-                    <Send className="w-5 h-5 fill-royal-black" />
+                    <WhatsAppIcon className="w-5 h-5 fill-royal-black" />
                     <span>Proceed via WhatsApp</span>
                   </button>
 

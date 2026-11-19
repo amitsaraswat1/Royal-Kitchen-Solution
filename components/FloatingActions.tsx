@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Phone, MessageCircle, ArrowUp } from "lucide-react";
+import { Phone, ArrowUp } from "lucide-react";
 import { BUSINESS_INFO } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function FloatingActions() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -46,7 +47,7 @@ export default function FloatingActions() {
           aria-label="Chat on WhatsApp with Royal Kitchen Solution"
           className="pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm shadow-xl hover:shadow-2xl transition-all duration-200 focus:outline-none focus-visible-gold min-h-[48px] hover:-translate-y-1 active:scale-95 group"
         >
-          <MessageCircle className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
+          <WhatsAppIcon className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
           <span className="font-semibold tracking-wide">WhatsApp Booking</span>
         </a>
 
@@ -85,7 +86,7 @@ export default function FloatingActions() {
             aria-label="WhatsApp Royal Kitchen Solution"
             className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-emerald-600 text-white font-semibold text-sm shadow-sm active:scale-95 focus:outline-none focus-visible-gold min-h-[48px]"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
+            <WhatsAppIcon className="w-4 h-4 fill-white" />
             <span>WhatsApp</span>
           </a>
         </div>

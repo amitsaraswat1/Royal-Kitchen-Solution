@@ -229,9 +229,9 @@ export const PRICING_DATA: PricingItem[] = [
   {
     id: "deep-cleaning",
     title: "Chimney Deep Cleaning",
-    priceDisplay: "Starting at ₹___",
-    isPlaceholderPrice: true,
-    notes: "Placeholder rate - final cost depends on chimney model & grease level.",
+    priceDisplay: "Starting at ₹999",
+    isPlaceholderPrice: false,
+    notes: "Complete deep cleaning of filters, baffle plates, and oil collector.",
     popular: true,
     features: [
       "Filters & baffle degreasing",

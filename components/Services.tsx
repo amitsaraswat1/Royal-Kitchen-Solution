@@ -11,9 +11,9 @@ import {
   CalendarClock,
   ArrowRight,
   Check,
-  MessageCircle,
 } from "lucide-react";
 import { SERVICES_DATA, BUSINESS_INFO, ServiceItem } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const iconMap: Record<string, React.ReactNode> = {
   Sparkles: <Sparkles className="w-5 h-5 text-royal-gold" />,
@@ -103,15 +103,15 @@ export default function Services() {
                   </ul>
                 </div>
 
-                {/* Card Action Buttons */}
+                {/* Card Action Buttons: Yellow/gold button as requested */}
                 <div className="pt-4 border-t border-gray-100 flex items-center gap-3">
                   <a
                     href={getWhatsAppServiceLink(service.title)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-royal-black hover:bg-royal-dark text-white font-medium text-sm transition-colors border border-royal-border hover:border-royal-gold focus:outline-none focus-visible-gold min-h-[44px]"
+                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-royal-gold hover:bg-warm-gold text-royal-black font-bold text-sm transition-all duration-200 shadow-gold hover:shadow-gold-glow focus:outline-none focus-visible-gold min-h-[44px] active:scale-95"
                   >
-                    <MessageCircle className="w-4 h-4 text-royal-gold" />
+                    <WhatsAppIcon className="w-4 h-4 fill-royal-black" />
                     <span>Book on WhatsApp</span>
                   </a>
                   

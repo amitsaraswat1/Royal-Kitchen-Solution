@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
 import { BUSINESS_INFO, NAV_LINKS } from "@/data/content";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -140,6 +141,7 @@ export default function Header() {
               onClick={closeMenu}
               className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-base transition-colors focus:outline-none focus-visible-gold min-h-[48px]"
             >
+              <WhatsAppIcon className="w-5 h-5 fill-white" />
               <span>Chat on WhatsApp</span>
             </a>
           </div>
