@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Phone,
   MessageCircle,
@@ -127,9 +128,25 @@ export default function ContactBooking() {
           {/* Left Column: Direct Contact Info & Hours */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-2xl bg-royal-black text-white border border-royal-border shadow-xl">
-              <h3 className="font-serif text-2xl font-bold text-white mb-2">
-                {BUSINESS_INFO.name}
-              </h3>
+              <div className="flex items-center gap-3.5 mb-4">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-royal-gold/40 shrink-0 bg-royal-dark shadow-sm">
+                  <Image
+                    src="/images/logo-icon.png"
+                    alt="Royal Kitchen Solution"
+                    fill
+                    sizes="48px"
+                    className="object-contain p-0.5"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-2xl font-bold text-white leading-tight">
+                    Royal Kitchen
+                  </h3>
+                  <span className="text-xs font-semibold tracking-[0.25em] uppercase text-royal-gold block">
+                    S O L U T I O N
+                  </span>
+                </div>
+              </div>
               <p className="text-sm text-gray-300 mb-8 leading-relaxed">
                 Contact our service desk for fast support, filter cleaning bookings, or
                 urgent chimney breakdown visits.

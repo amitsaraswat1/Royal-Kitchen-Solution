@@ -29,10 +29,18 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-3xl">
-          {/* Top badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-card/90 border border-royal-gold/40 text-royal-gold text-xs sm:text-sm font-medium mb-6 shadow-sm backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-royal-gold" />
-            <span>Reliable Kitchen Chimney Care</span>
+          {/* Top badge with official logo mark */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-royal-card/90 border border-royal-gold/40 text-royal-gold text-xs sm:text-sm font-medium mb-6 shadow-sm backdrop-blur-sm">
+            <div className="relative w-5 h-5 rounded-md overflow-hidden bg-royal-black shrink-0">
+              <Image
+                src="/images/logo-icon.png"
+                alt="Royal Kitchen Solution Icon"
+                fill
+                sizes="20px"
+                className="object-contain"
+              />
+            </div>
+            <span>Doorstep Kitchen Chimney Specialists</span>
           </div>
 
           {/* Main H1 Heading */}

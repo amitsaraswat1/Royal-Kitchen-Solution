@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, Mail, MessageCircle, Flame, ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail, MessageCircle, ArrowUp } from "lucide-react";
 import { BUSINESS_INFO, NAV_LINKS, SERVICES_DATA } from "@/data/content";
 
 export default function Footer() {
@@ -14,13 +15,27 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Brand info */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="#home" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-royal-dark border border-royal-gold/40 flex items-center justify-center text-royal-gold">
-                <Flame className="w-5 h-5 text-royal-gold" />
+            <Link href="#home" className="flex items-center gap-3 group">
+              <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-royal-gold/40 shadow-sm shrink-0 bg-royal-dark">
+                <Image
+                  src="/images/logo-icon.png"
+                  alt="Royal Kitchen Solution Logo"
+                  fill
+                  sizes="44px"
+                  className="object-contain p-0.5 group-hover:scale-105 transition-transform"
+                />
               </div>
-              <span className="font-serif text-xl font-bold tracking-wide text-white">
-                Royal <span className="text-royal-gold">Kitchen</span> Solution
-              </span>
+              <div className="flex flex-col">
+                <span className="font-serif text-xl font-bold tracking-wide text-white leading-tight">
+                  Royal Kitchen
+                </span>
+                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-royal-gold">
+                  S O L U T I O N
+                </span>
+                <span className="text-[9px] tracking-wider uppercase text-gray-400 mt-0.5">
+                  Cleaning · Repair · Installation
+                </span>
+              </div>
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">

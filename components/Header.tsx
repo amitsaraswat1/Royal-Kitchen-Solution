@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, Flame } from "lucide-react";
+import Image from "next/image";
+import { Phone, Menu, X } from "lucide-react";
 import { BUSINESS_INFO, NAV_LINKS } from "@/data/content";
 
 export default function Header() {
@@ -29,25 +30,37 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-royal-black/95 backdrop-blur-md py-2.5 sm:py-3 shadow-lg border-b border-royal-border"
-          : "bg-royal-black/80 backdrop-blur-sm py-3 sm:py-4 border-b border-white/10"
+          : "bg-royal-black/85 backdrop-blur-sm py-3 sm:py-4 border-b border-white/10"
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between w-full">
-          {/* Logo */}
+          {/* Official Brand Logo */}
           <Link
             href="#home"
-            className="flex items-center gap-1.5 sm:gap-2 group focus:outline-none focus-visible-gold rounded-lg py-1 pr-1 shrink min-w-0"
+            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus-visible-gold rounded-lg py-1 pr-1 shrink min-w-0"
           >
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-royal-dark border border-royal-gold/40 flex items-center justify-center text-royal-gold shadow-sm group-hover:border-royal-gold transition-colors shrink-0">
-              <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-royal-gold transition-transform group-hover:scale-110" />
+            {/* Logo Icon Badge */}
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden border border-royal-gold/40 shadow-sm group-hover:border-royal-gold transition-colors shrink-0 bg-royal-dark">
+              <Image
+                src="/images/logo-icon.png"
+                alt="Royal Kitchen Solution official logo"
+                fill
+                sizes="(max-width: 640px) 36px, 44px"
+                className="object-contain p-0.5 group-hover:scale-105 transition-transform"
+                priority
+              />
             </div>
+            {/* Logo Typography matching official logo */}
             <div className="flex flex-col min-w-0">
-              <span className="font-serif text-sm sm:text-xl font-bold tracking-wide text-white truncate">
-                Royal <span className="text-royal-gold">Kitchen</span> Solution
+              <span className="font-serif text-base sm:text-xl font-bold tracking-wide text-white truncate leading-tight">
+                Royal Kitchen
               </span>
-              <span className="text-[8px] sm:text-[10px] tracking-widest uppercase text-gray-400 truncate">
-                Chimney Care Specialists
+              <span className="text-[9px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-royal-gold truncate">
+                S O L U T I O N
+              </span>
+              <span className="hidden md:block text-[8px] tracking-wider uppercase text-gray-400">
+                Cleaning · Repair · Installation
               </span>
             </div>
           </Link>

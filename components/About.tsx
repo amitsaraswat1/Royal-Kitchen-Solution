@@ -86,16 +86,27 @@ export default function About() {
 
             {/* Direct Contact Card with Call, WhatsApp and Email */}
             <div className="p-5 rounded-2xl bg-royal-black text-white border border-royal-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <span className="text-xs text-royal-gold font-medium uppercase tracking-wider">
-                  Direct Helpline &amp; Queries
-                </span>
-                <p className="text-lg font-bold font-serif tracking-wide text-white">
-                  {BUSINESS_INFO.displayPhone}
-                </p>
-                <p className="text-xs text-gray-300">
-                  Email: {BUSINESS_INFO.email}
-                </p>
+              <div className="flex items-center gap-3.5">
+                <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-royal-gold/40 shrink-0 bg-royal-dark shadow-sm">
+                  <Image
+                    src="/images/logo-icon.png"
+                    alt="Royal Kitchen Solution Brand Mark"
+                    fill
+                    sizes="48px"
+                    className="object-contain p-0.5"
+                  />
+                </div>
+                <div className="space-y-0.5">
+                  <span className="text-[10px] text-royal-gold font-semibold uppercase tracking-widest block">
+                    Direct Helpline &amp; Doorstep Booking
+                  </span>
+                  <p className="text-lg font-bold font-serif tracking-wide text-white leading-tight">
+                    {BUSINESS_INFO.displayPhone}
+                  </p>
+                  <p className="text-xs text-gray-300">
+                    {BUSINESS_INFO.email}
+                  </p>
+                </div>
               </div>
 
               <div className="flex items-center gap-2.5">
