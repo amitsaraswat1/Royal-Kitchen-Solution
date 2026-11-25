@@ -53,6 +53,13 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface BrandPartner {
+  name: string;
+  logo: string;
+  alt: string;
+  tagline: string;
+}
+
 export const BUSINESS_INFO = {
   name: "Shree Balaji Electronics",
   tagline: "Professional Kitchen Chimney & Appliance Service at Your Doorstep",
@@ -83,6 +90,45 @@ export const TRUST_INDICATORS = [
   { label: "Cleaning, Repair & Fitting", desc: "End-to-end chimney solutions" },
   { label: "Quick WhatsApp Booking", desc: "Direct instant confirmation" },
   { label: "Transparent Inspection", desc: "Upfront pricing clarification" },
+];
+
+export const PARTNERSHIP_BRANDS: BrandPartner[] = [
+  {
+    name: "Glen",
+    logo: "/images/brands/glen.png",
+    alt: "Glen Kitchen Chimney Service & Genuine Spares",
+    tagline: "Authorized Service",
+  },
+  {
+    name: "Elica",
+    logo: "/images/brands/elica.png",
+    alt: "Elica Kitchen Chimney Repair & Cleaning Support",
+    tagline: "Authorized Service",
+  },
+  {
+    name: "Faber",
+    logo: "/images/brands/faber.png",
+    alt: "Faber Kitchen Chimney Maintenance & OEM Parts",
+    tagline: "Authorized Service",
+  },
+  {
+    name: "Sunflame",
+    logo: "/images/brands/sunflame.png",
+    alt: "Sunflame Chimney Repair & Deep Cleaning Support",
+    tagline: "Authorized Service",
+  },
+  {
+    name: "Kaff",
+    logo: "/images/brands/kaff.png",
+    alt: "Kaff Kitchen Appliances & Chimney Service",
+    tagline: "Authorized Service",
+  },
+  {
+    name: "Whirlpool",
+    logo: "/images/brands/whirlpool.svg",
+    alt: "Whirlpool Kitchen Hood & Chimney Care",
+    tagline: "Authorized Service",
+  },
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [

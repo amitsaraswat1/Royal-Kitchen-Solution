@@ -90,7 +90,7 @@ export default function AdminPage() {
         if (window.location.search.includes("preview=true") || localStorage.getItem("sb_admin_auth") === "true") {
           setIsAuthenticated(true);
         }
-      } catch {}
+      } catch { }
     }
   }, []);
 
@@ -426,7 +426,7 @@ export default function AdminPage() {
       if (rememberMe && typeof window !== "undefined") {
         try {
           localStorage.setItem("sb_admin_auth", "true");
-        } catch {}
+        } catch { }
       }
     } else {
       setAuthError("Invalid Admin ID or Password. Check hint below.");
@@ -439,7 +439,7 @@ export default function AdminPage() {
     if (typeof window !== "undefined") {
       try {
         localStorage.removeItem("sb_admin_auth");
-      } catch {}
+      } catch { }
     }
   };
 
@@ -710,11 +710,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("dashboard")}
-            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "dashboard"
+            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "dashboard"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <LayoutDashboard className="w-4 h-4" />
             <span>Dashboard Overview</span>
@@ -722,11 +721,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("bookings")}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "bookings"
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "bookings"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <div className="flex items-center gap-3">
               <CalendarCheck2 className="w-4 h-4" />
@@ -734,9 +732,8 @@ export default function AdminPage() {
             </div>
             {activeBookingsCount > 0 && (
               <span
-                className={`text-xs px-2 py-0.5 rounded-full ${
-                  activeTab === "bookings" ? "bg-black text-[#C9A227]" : "bg-[#C9A227]/20 text-[#E0B84C]"
-                }`}
+                className={`text-xs px-2 py-0.5 rounded-full ${activeTab === "bookings" ? "bg-black text-[#C9A227]" : "bg-[#C9A227]/20 text-[#E0B84C]"
+                  }`}
               >
                 {activeBookingsCount}
               </span>
@@ -745,11 +742,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("services")}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "services"
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "services"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <div className="flex items-center gap-3">
               <Wrench className="w-4 h-4" />
@@ -759,11 +755,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("pricing")}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "pricing"
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "pricing"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <div className="flex items-center gap-3">
               <DollarSign className="w-4 h-4" />
@@ -773,11 +768,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("technicians")}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "technicians"
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "technicians"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <div className="flex items-center gap-3">
               <Users className="w-4 h-4" />
@@ -787,11 +781,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("blogs")}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "blogs"
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "blogs"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <div className="flex items-center gap-3">
               <FileText className="w-4 h-4" />
@@ -805,11 +798,10 @@ export default function AdminPage() {
 
           <button
             onClick={() => switchTab("settings")}
-            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${
-              activeTab === "settings"
+            className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition ${activeTab === "settings"
                 ? "bg-[#C9A227] text-[#111111] font-bold shadow-md shadow-[#C9A227]/20"
                 : "text-neutral-300 hover:bg-[#202020] hover:text-white"
-            }`}
+              }`}
           >
             <Settings className="w-4 h-4" />
             <span>Business Settings</span>
@@ -1045,17 +1037,16 @@ export default function AdminPage() {
                         <td className="py-3 px-3 text-neutral-400">{b.city}</td>
                         <td className="py-3 px-3">
                           <span
-                            className={`inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${
-                              b.status === "Pending"
+                            className={`inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${b.status === "Pending"
                                 ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
                                 : b.status === "Confirmed"
-                                ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                                : b.status === "In Progress"
-                                ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                                : b.status === "Completed"
-                                ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-                                : "bg-red-500/20 text-red-300 border border-red-500/30"
-                            }`}
+                                  ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                                  : b.status === "In Progress"
+                                    ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                                    : b.status === "Completed"
+                                      ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                                      : "bg-red-500/20 text-red-300 border border-red-500/30"
+                              }`}
                           >
                             {b.status}
                           </span>
@@ -1254,17 +1245,16 @@ export default function AdminPage() {
                           </td>
                           <td className="py-4 px-4">
                             <span
-                              className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold ${
-                                b.status === "Pending"
+                              className={`inline-block px-2.5 py-1 rounded-full text-xs font-semibold ${b.status === "Pending"
                                   ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
                                   : b.status === "Confirmed"
-                                  ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                                  : b.status === "In Progress"
-                                  ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                                  : b.status === "Completed"
-                                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-                                  : "bg-red-500/20 text-red-300 border border-red-500/30"
-                              }`}
+                                    ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                                    : b.status === "In Progress"
+                                      ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                                      : b.status === "Completed"
+                                        ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                                        : "bg-red-500/20 text-red-300 border border-red-500/30"
+                                }`}
                             >
                               {b.status}
                             </span>
@@ -1467,11 +1457,10 @@ export default function AdminPage() {
                   <button
                     key={appliance}
                     onClick={() => setSelectedRateCardAppliance(appliance)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
-                      selectedRateCardAppliance === appliance
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${selectedRateCardAppliance === appliance
                         ? "bg-[#C9A227] text-black font-bold shadow-xs"
                         : "bg-[#202020] hover:bg-[#2a2a2a] text-neutral-300 border border-[#333333]"
-                    }`}
+                      }`}
                   >
                     {appliance}
                     {appliance === "All Appliances" ? ` (${rateCards.length})` : ""}
@@ -1521,9 +1510,8 @@ export default function AdminPage() {
                       .map((item, idx) => (
                         <tr
                           key={item.id}
-                          className={`hover:bg-[#1c1c1c] transition-colors ${
-                            idx % 2 === 0 ? "bg-[#141414]" : "bg-[#171717]"
-                          }`}
+                          className={`hover:bg-[#1c1c1c] transition-colors ${idx % 2 === 0 ? "bg-[#141414]" : "bg-[#171717]"
+                            }`}
                         >
                           <td className="py-3.5 px-4 font-bold text-white whitespace-nowrap">
                             <div className="flex items-center gap-2">
@@ -1537,17 +1525,16 @@ export default function AdminPage() {
                           </td>
                           <td className="py-3.5 px-4 whitespace-nowrap">
                             <span
-                              className={`inline-block px-2.5 py-1 rounded-full text-[11px] font-semibold ${
-                                item.serviceType.includes("Full Service")
+                              className={`inline-block px-2.5 py-1 rounded-full text-[11px] font-semibold ${item.serviceType.includes("Full Service")
                                   ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
                                   : item.serviceType.includes("Basic Service")
-                                  ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                                  : item.serviceType.includes("Repair")
-                                  ? "bg-orange-500/20 text-orange-300 border border-orange-500/30"
-                                  : item.serviceType.includes("Installation")
-                                  ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                                  : "bg-neutral-800 text-neutral-300 border border-neutral-700"
-                              }`}
+                                    ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                                    : item.serviceType.includes("Repair")
+                                      ? "bg-orange-500/20 text-orange-300 border border-orange-500/30"
+                                      : item.serviceType.includes("Installation")
+                                        ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                                        : "bg-neutral-800 text-neutral-300 border border-neutral-700"
+                                }`}
                             >
                               {item.serviceType}
                             </span>
@@ -1633,15 +1620,14 @@ export default function AdminPage() {
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span
-                        className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${
-                          t.status === "Available"
+                        className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${t.status === "Available"
                             ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
                             : t.status === "On Doorstep Job"
-                            ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
-                            : t.status === "In Transit"
-                            ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
-                            : "bg-neutral-800 text-neutral-400"
-                        }`}
+                              ? "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                              : t.status === "In Transit"
+                                ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                                : "bg-neutral-800 text-neutral-400"
+                          }`}
                       >
                         ● {t.status}
                       </span>
@@ -1809,7 +1795,8 @@ export default function AdminPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="px-3 py-1 rounded-full bg-[#1F1F1F] border border-[#C9A227]/40 text-[#E0B84C] text-xs font-semibold">
-                    Current ID: <strong className="text-white">{adminCredentials.username}</strong>
+                    Current ID: <strong
+                      className="text-white">{adminCredentials.username}</strong>
                   </span>
                 </div>
               </div>

@@ -10,8 +10,9 @@ import {
   AlertCircle,
   ShieldCheck,
   MapPin,
+  Award,
 } from "lucide-react";
-import { BUSINESS_INFO, SERVICE_OPTIONS } from "@/data/content";
+import { BUSINESS_INFO, SERVICE_OPTIONS, PARTNERSHIP_BRANDS } from "@/data/content";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { saveBookingItem, BookingLead } from "@/lib/admin-store";
 
@@ -514,6 +515,80 @@ export default function ContactBooking() {
                   </p>
                 </div>
               </form>
+            </div>
+
+            {/* Brand Partnerships Section */}
+            <div className="mt-6 bg-royal-surface rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-200/80">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 shrink-0">
+                    <Award className="w-5 h-5 text-royal-gold" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                        Multi-Brand Service Partnership
+                      </span>
+                    </div>
+                    <h4 className="font-serif text-lg font-bold text-royal-black leading-tight mt-0.5">
+                      Brand Partnerships &amp; Certified Support
+                    </h4>
+                  </div>
+                </div>
+                <div className="text-left sm:text-right">
+                  <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    100% Genuine Spare Parts
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-600 mt-3.5 mb-4 leading-relaxed">
+                We provide certified doorstep cleaning, electronic motor diagnostics, switch PCB repairs, and original manufacturer replacement parts for all major brands:
+              </p>
+
+              {/* 6 Logos Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                {PARTNERSHIP_BRANDS.map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="bg-white rounded-xl p-3 border border-gray-200 shadow-xs hover:shadow-md hover:border-royal-gold/60 transition-all duration-200 flex flex-col items-center justify-center text-center group min-h-[86px]"
+                  >
+                    <div className="h-9 w-full flex items-center justify-center px-1">
+                      <Image
+                        src={brand.logo}
+                        alt={brand.alt}
+                        width={120}
+                        height={32}
+                        unoptimized
+                        className="max-h-7 max-w-full w-auto h-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                      />
+                    </div>
+                    <span className="text-[11px] font-bold text-royal-black mt-2 tracking-tight group-hover:text-amber-600">
+                      {brand.name}
+                    </span>
+                    <span className="text-[9px] text-gray-500 font-medium">
+                      {brand.tagline}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust Badges Row */}
+              <div className="mt-4 pt-3.5 border-t border-gray-200/80 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center">
+                <div className="flex items-center justify-center gap-1.5 text-xs text-gray-700 font-medium">
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Original Brand Components</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 text-xs text-gray-700 font-medium">
+                  <Award className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Factory-Trained Engineers</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 text-xs text-gray-700 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-royal-gold shrink-0" />
+                  <span>90-Day Post-Service Warranty</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
