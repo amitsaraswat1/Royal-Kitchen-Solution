@@ -7,6 +7,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
+import ServiceablePinCodes from "@/components/ServiceablePinCodes";
 import ContactBooking from "@/components/ContactBooking";
 import FloatingActions from "@/components/FloatingActions";
 import Footer from "@/components/Footer";
@@ -43,7 +44,10 @@ export default function Home() {
         {/* 9. FAQ Accordion */}
         <Faq />
 
-        {/* 10. Contact & Booking Form */}
+        {/* 10. Serviceable PIN Codes & Localities */}
+        <ServiceablePinCodes />
+
+        {/* 11. Contact & Booking Form */}
         <ContactBooking />
       </main>
 
