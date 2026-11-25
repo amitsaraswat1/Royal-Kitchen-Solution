@@ -20,7 +20,7 @@ export default function About() {
               <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden border-2 border-royal-gold/30 shadow-2xl bg-royal-dark">
                 <Image
                   src="/images/about-technician.jpg"
-                  alt="Technician inspecting a kitchen chimney range hood - Royal Kitchen Solution"
+                  alt="Technician inspecting a kitchen chimney range hood - Shree Balaji Electronics"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-center"
@@ -91,7 +91,7 @@ export default function About() {
                 <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-royal-gold/40 shrink-0 bg-royal-dark shadow-sm">
                   <Image
                     src="/images/logo-icon.png"
-                    alt="Royal Kitchen Solution Brand Mark"
+                    alt="Shree Balaji Electronics Brand Mark"
                     fill
                     sizes="48px"
                     className="object-contain p-0.5"

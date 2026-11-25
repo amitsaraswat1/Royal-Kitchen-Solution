@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Sparkles,
   Wrench,
@@ -11,9 +12,11 @@ import {
   CalendarClock,
   ArrowRight,
   Check,
+  BookOpen,
 } from "lucide-react";
 import { SERVICES_DATA, BUSINESS_INFO, ServiceItem } from "@/data/content";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { getStoredServices } from "@/lib/admin-store";
 
 const iconMap: Record<string, React.ReactNode> = {
   Sparkles: <Sparkles className="w-5 h-5 text-royal-gold" />,
@@ -25,8 +28,36 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default function Services() {
+  const [homeServices, setHomeServices] = React.useState<ServiceItem[]>(SERVICES_DATA);
+
+  React.useEffect(() => {
+    const syncHomeServices = () => {
+      const stored = getStoredServices();
+      if (stored && stored.length > 0) {
+        setHomeServices(
+          stored.map((s) => ({
+            id: s.id || s.slug,
+            title: s.title,
+            shortDesc: s.tagline || s.overview.slice(0, 120) + "...",
+            iconName: s.iconName || "Wrench",
+            features: s.whatsIncluded.slice(0, 3),
+            image: s.image,
+          }))
+        );
+      }
+    };
+    syncHomeServices();
+
+    window.addEventListener("rks_store_updated", syncHomeServices);
+    window.addEventListener("storage", syncHomeServices);
+    return () => {
+      window.removeEventListener("rks_store_updated", syncHomeServices);
+      window.removeEventListener("storage", syncHomeServices);
+    };
+  }, []);
+
   const getWhatsAppServiceLink = (serviceTitle: string) => {
-    const text = `Hello Royal Kitchen Solution, I would like to book or enquire about "${serviceTitle}". Please share details.`;
+    const text = `Hello Shree Balaji Electronics, I would like to book or enquire about "${serviceTitle}". Please share details.`;
     return `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(
       text
     )}`;
@@ -53,7 +84,7 @@ export default function Services() {
 
         {/* 6 Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES_DATA.map((service: ServiceItem) => (
+          {homeServices.map((service: ServiceItem) => (
             <div
               key={service.id}
               className="group bg-white rounded-2xl overflow-hidden border border-gray-200/80 hover:border-royal-gold/60 shadow-sm hover:shadow-gold transition-all duration-300 flex flex-col h-full transform motion-safe:hover:-translate-y-1"
@@ -62,7 +93,7 @@ export default function Services() {
               <div className="relative h-52 w-full overflow-hidden bg-royal-dark">
                 <Image
                   src={service.image}
-                  alt={`${service.title} - Royal Kitchen Solution`}
+                  alt={`${service.title} - Shree Balaji Electronics`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -127,6 +158,30 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View Detailed Services Page Banner */}
+        <div className="mt-14 max-w-4xl mx-auto bg-gradient-to-r from-royal-black via-royal-card to-royal-black p-6 sm:p-8 rounded-2xl border border-royal-gold/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-royal-gold/20 border border-royal-gold/50 flex items-center justify-center shrink-0">
+              <BookOpen className="w-6 h-6 text-royal-gold" />
+            </div>
+            <div>
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-white mb-1">
+                Want In-Depth Service Details & Step-by-Step Checklists?
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-300">
+                Explore our full procedures, symptoms guide, brand support & service comparison plans.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-royal-gold hover:bg-warm-gold text-royal-black font-bold text-sm tracking-wide transition-all duration-200 shadow-gold hover:shadow-gold-glow shrink-0 focus:outline-none focus-visible-gold"
+          >
+            <span>View Detailed Services Page</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

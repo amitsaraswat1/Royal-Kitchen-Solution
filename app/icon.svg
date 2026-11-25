@@ -1,19 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Black rounded container matching brand identity -->
-  <rect width="64" height="64" rx="14" fill="#111111" />
-  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.4" />
+  <!-- Solid Dark Background -->
+  <rect width="64" height="64" rx="14" fill="#0A0A0A" />
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5" />
   
-  <!-- Chimney Flue / Top Duct -->
-  <rect x="25" y="12" width="14" height="12" rx="1" fill="#C9A227" />
+  <!-- Lord Balaji Mukut / Crown (Gold) -->
+  <!-- Top Finial / Kalash -->
+  <path d="M32 5 C30.5 7 29.5 9 32 11.5 C34.5 9 33.5 7 32 5 Z" fill="#FFE27A" stroke="#C9A227" stroke-width="0.5" />
+  <!-- Upper Tier -->
+  <path d="M28 11.5 C29.5 10.5 34.5 10.5 36 11.5 C38 14 41 16 41 19 C35 19.5 29 19.5 23 19 C23 16 26 14 28 11.5 Z" fill="#E6B800" stroke="#B38600" stroke-width="0.5" />
+  <!-- Main Crown Dome -->
+  <path d="M21 18.5 C24 17.5 40 17.5 43 18.5 C46 22 47 25 47 27 C37 28 27 28 17 27 C17 25 18 22 21 18.5 Z" fill="#D4AF37" stroke="#997A15" stroke-width="0.5" />
+  <!-- Crown Base Band with Pearl Dots -->
+  <path d="M16 26 C21 25.5 43 25.5 48 26 C48.5 28.5 47 30.5 45 31.5 C37 30 27 30 19 31.5 C17 30.5 15.5 28.5 16 26 Z" fill="#FFDF73" />
   
-  <!-- Chimney Canopy / Trapezoid Hood -->
-  <path d="M25 24 L14 43 L50 43 L39 24 Z" fill="#C9A227" />
+  <!-- White Namam / Tilak (Sacred U Shape) -->
+  <path d="M21 29 L26.5 50 C28.5 55 35.5 55 37.5 50 L43 29 L38 29 L34.5 46.5 C33.5 48 30.5 48 29.5 46.5 L26 29 Z" fill="#FFFFFF" />
   
-  <!-- Bottom Rounded Lip Bar -->
-  <rect x="10" y="42" width="44" height="4.5" rx="2.25" fill="#E0B84C" />
-  
-  <!-- 3 Suction Airflow Waves ) ) ) -->
-  <path d="M22 50 C24 53 24 55 21 58" fill="none" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" />
-  <path d="M31 50 C33 53 33 55 30 58" fill="none" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" />
-  <path d="M40 50 C42 53 42 55 39 58" fill="none" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Central Tilak Flame (Rich Gold/Orange) -->
+  <path d="M32 26.5 L34 43.5 L32 46 L30 43.5 Z" fill="#FFB703" stroke="#D4AF37" stroke-width="0.5" />
 </svg>

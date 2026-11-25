@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, ArrowUp } from "lucide-react";
+import { Phone, Mail, ArrowUp, MapPin } from "lucide-react";
 import { BUSINESS_INFO, NAV_LINKS, SERVICES_DATA } from "@/data/content";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
@@ -16,33 +16,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Brand info */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="#home" className="flex items-center gap-3 group">
-              <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-royal-gold/40 shadow-sm shrink-0 bg-royal-dark">
+            <Link href="#home" className="inline-block group" aria-label="Shree Balaji Electronics Home">
+              <div className="relative h-14 sm:h-16 w-52 sm:w-60 transition-transform group-hover:scale-105">
                 <Image
-                  src="/images/logo-icon.png"
-                  alt="Royal Kitchen Solution Logo"
+                  src="/images/shree-balaji-logo-trans.png"
+                  alt="Shree Balaji Electronics Logo"
                   fill
-                  sizes="44px"
-                  className="object-contain p-0.5 group-hover:scale-105 transition-transform"
+                  sizes="(max-width: 640px) 210px, 240px"
+                  className="object-contain object-left"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl font-bold tracking-wide text-white leading-tight">
-                  Royal Kitchen
-                </span>
-                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-royal-gold">
-                  S O L U T I O N
-                </span>
-                <span className="text-[9px] tracking-wider uppercase text-gray-400 mt-0.5">
-                  Cleaning · Repair · Installation
-                </span>
               </div>
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-              Professional kitchen chimney cleaning, repair, installation, and maintenance
-              services. We deliver dedicated doorstep assistance to keep your kitchen
-              smoke-free and hygienic.
+              Professional kitchen chimney cleaning, repair, installation, and appliance maintenance
+              services by Shree Balaji Electronics. We deliver dedicated doorstep assistance across Delhi NCR.
             </p>
 
             <div className="pt-2">
@@ -60,14 +48,22 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-gray-300">
               {NAV_LINKS.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="hover:text-royal-gold transition-colors focus:outline-none focus-visible-gold rounded py-0.5"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/#faq"
+                  className="hover:text-royal-gold transition-colors focus:outline-none focus-visible-gold rounded py-0.5"
+                >
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -113,7 +109,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-emerald-400 transition-colors focus:outline-none focus-visible-gold rounded"
                 >
-                  WhatsApp: +91 70115 46526
+                  WhatsApp: {BUSINESS_INFO.displayPhone}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -124,6 +120,12 @@ export default function Footer() {
                 >
                   {BUSINESS_INFO.email}
                 </a>
+              </li>
+              <li className="flex items-start gap-2.5 pt-1">
+                <MapPin className="w-4 h-4 text-royal-gold shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-xs leading-relaxed">
+                  {BUSINESS_INFO.address}
+                </span>
               </li>
             </ul>
 
@@ -148,6 +150,10 @@ export default function Footer() {
             </a>
             <span className="text-gray-600">|</span>
             <span className="text-gray-400">Premium Kitchen Chimney Care</span>
+            <span className="text-gray-600">|</span>
+            <Link href="/admin" className="text-gray-500 hover:text-royal-gold transition-colors">
+              Admin Portal
+            </Link>
           </div>
         </div>
       </div>

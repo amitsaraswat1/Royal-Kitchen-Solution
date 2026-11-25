@@ -1,6 +1,6 @@
-# Royal Kitchen Solution - Kitchen Chimney Service Landing Page
+# Shree Balaji Electronics - Kitchen Chimney Service Landing Page
 
-A premium, conversion-focused, mobile-first single-page landing page built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS** for **Royal Kitchen Solution**.
+A premium, conversion-focused, mobile-first single-page landing page built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS** for **Shree Balaji Electronics**.
 
 ---
 
@@ -39,13 +39,13 @@ In `data/content.ts`, edit `BUSINESS_INFO`:
 ```typescript
 export const BUSINESS_INFO = {
   name: "Royal Kitchen Solution",
-  phone: "7011546526",                      // Update 10-digit number here
-  displayPhone: "+91 70115 46526",           // Display format
-  callLink: "tel:+917011546526",             // Direct call link
-  email: "info@Royalkitchensolution.com",     // Official business email
-  emailLink: "mailto:info@Royalkitchensolution.com",
-  whatsappNumber: "917011546526",           // 12-digit international WhatsApp number
-  whatsappUrl: "https://wa.me/917011546526",
+  phone: "8796886094",                      // Update 10-digit number here
+  displayPhone: "+91 87968 86094",           // Display format
+  callLink: "tel:+918796886094",             // Direct call link
+  email: "info@shreebalajielectronics.com",   // Official business email
+  emailLink: "mailto:info@shreebalajielectronics.com",
+  whatsappNumber: "918796886094",           // 12-digit international WhatsApp number
+  whatsappUrl: "https://wa.me/918796886094",
   hours: "Monday - Sunday: 9:00 AM - 8:00 PM",
 };
 ```

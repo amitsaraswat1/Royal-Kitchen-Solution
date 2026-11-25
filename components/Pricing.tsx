@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import { Check, AlertCircle, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Check, AlertCircle, Sparkles, ArrowRight, FileSpreadsheet } from "lucide-react";
 import { PRICING_DATA, BUSINESS_INFO, PricingItem } from "@/data/content";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Pricing() {
   const getWhatsAppPricingLink = (title: string, priceDisplay: string) => {
-    const text = `Hello Royal Kitchen Solution, I would like to book or ask about "${title}" (${priceDisplay}). Please share the exact quote.`;
+    const text = `Hello Shree Balaji Electronics, I would like to book or ask about "${title}" (${priceDisplay}). Please share the exact quote.`;
     return `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(
       text
     )}`;
@@ -102,6 +103,21 @@ export default function Pricing() {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Complete Rate Card CTA Banner */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/pricing#rate-card"
+            className="inline-flex items-center gap-3 px-6 sm:px-8 py-3.5 rounded-full bg-royal-black hover:bg-black text-white hover:text-royal-gold border border-royal-gold/40 hover:border-royal-gold font-semibold text-sm sm:text-base transition-all duration-200 shadow-md hover:shadow-lg group"
+          >
+            <FileSpreadsheet className="w-5 h-5 text-royal-gold" />
+            <span>View Complete Appliance Rate Card (All 21 Services)</span>
+            <ArrowRight className="w-4 h-4 text-royal-gold group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <p className="text-xs text-gray-500 mt-2 font-medium">
+            Kitchen Chimneys • Island Chimneys • Built-In Hobs • Cooktops • Microwaves • Ovens
+          </p>
         </div>
       </div>
     </section>

@@ -44,7 +44,7 @@ export default function FloatingActions() {
           href={BUSINESS_INFO.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp with Royal Kitchen Solution"
+          aria-label="Chat on WhatsApp with Shree Balaji Electronics"
           className="pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm shadow-xl hover:shadow-2xl transition-all duration-200 focus:outline-none focus-visible-gold min-h-[48px] hover:-translate-y-1 active:scale-95 group"
         >
           <WhatsAppIcon className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
@@ -54,7 +54,7 @@ export default function FloatingActions() {
         {/* Direct Call Floating Button */}
         <a
           href={BUSINESS_INFO.callLink}
-          aria-label="Call Royal Kitchen Solution helpline"
+          aria-label="Call Shree Balaji Electronics helpline"
           className="pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-full bg-royal-gold hover:bg-warm-gold text-royal-black font-bold text-sm shadow-gold hover:shadow-gold-glow transition-all duration-200 focus:outline-none focus-visible-gold min-h-[48px] hover:-translate-y-1 active:scale-95 group"
         >
           <Phone className="w-5 h-5 fill-royal-black group-hover:scale-110 transition-transform" />
@@ -71,7 +71,7 @@ export default function FloatingActions() {
           {/* Call Now */}
           <a
             href={BUSINESS_INFO.callLink}
-            aria-label="Call Royal Kitchen Solution"
+            aria-label="Call Shree Balaji Electronics"
             className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-royal-gold text-royal-black font-bold text-sm shadow-sm active:scale-95 focus:outline-none focus-visible-gold min-h-[48px]"
           >
             <Phone className="w-4 h-4 fill-royal-black" />
@@ -83,7 +83,7 @@ export default function FloatingActions() {
             href={BUSINESS_INFO.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="WhatsApp Royal Kitchen Solution"
+            aria-label="WhatsApp Shree Balaji Electronics"
             className="flex items-center justify-center gap-2 px-3 py-3 rounded-xl bg-emerald-600 text-white font-semibold text-sm shadow-sm active:scale-95 focus:outline-none focus-visible-gold min-h-[48px]"
           >
             <WhatsAppIcon className="w-4 h-4 fill-white" />

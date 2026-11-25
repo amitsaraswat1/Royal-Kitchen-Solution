@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Pricing from "@/components/Pricing";
 import HowItWorks from "@/components/HowItWorks";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
@@ -32,10 +31,7 @@ export default function Home() {
         {/* 4. Why Choose Us */}
         <WhyChooseUs />
 
-        {/* 5. Pricing */}
-        <Pricing />
-
-        {/* 6. How It Works */}
+        {/* 5. How It Works */}
         <HowItWorks />
 
         {/* 7. Before & After Gallery with Lightbox */}

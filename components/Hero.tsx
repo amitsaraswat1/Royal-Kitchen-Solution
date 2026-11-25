@@ -22,10 +22,10 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover object-center scale-105 transform motion-safe:transition-transform motion-safe:duration-1000"
         />
-        {/* Layered dark gradients for WCAG contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-royal-black via-royal-black/85 to-royal-black/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-royal-black via-transparent to-royal-black/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-royal-gold/15 via-transparent to-transparent pointer-events-none" />
+        {/* Asymmetric layered gradients so the Indian chimney on the right is clearly visible while text on the left stays crisp */}
+        <div className="absolute inset-0 bg-gradient-to-r from-royal-black/95 via-royal-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-royal-black/80 via-transparent to-royal-black/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-royal-gold/10 via-transparent to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -35,7 +35,7 @@ export default function Hero() {
             <div className="relative w-5 h-5 rounded-md overflow-hidden bg-royal-black shrink-0">
               <Image
                 src="/images/logo-icon.png"
-                alt="Royal Kitchen Solution Icon"
+                alt="Shree Balaji Electronics Icon"
                 fill
                 sizes="20px"
                 className="object-contain"
@@ -54,7 +54,7 @@ export default function Hero() {
           <p className="text-sm sm:text-lg lg:text-xl text-gray-200 leading-relaxed mb-8 max-w-2xl font-light">
             Expert Chimney Cleaning, Repair, Installation &amp; Maintenance
             Services. Keep Your Kitchen Fresh, Clean and Smoke-Free with{" "}
-            <span className="font-medium text-white">Royal Kitchen Solution</span>.
+            <span className="font-medium text-white">Shree Balaji Electronics</span>.
           </p>
 
           {/* Primary Action Buttons */}

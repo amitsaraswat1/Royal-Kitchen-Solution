@@ -9,9 +9,11 @@ import {
   CheckCircle2,
   AlertCircle,
   ShieldCheck,
+  MapPin,
 } from "lucide-react";
 import { BUSINESS_INFO, SERVICE_OPTIONS } from "@/data/content";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { saveBookingItem, BookingLead } from "@/lib/admin-store";
 
 interface FormState {
   name: string;
@@ -39,6 +41,7 @@ export default function ContactBooking() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedLeadId, setSubmittedLeadId] = useState<string | null>(null);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -82,8 +85,73 @@ export default function ContactBooking() {
     e.preventDefault();
     if (!validate()) return;
 
+    // Generate unique Lead ID
+    const newLeadId = `RKS-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    // Smart city detection from location text
+    const locLower = formData.location.toLowerCase();
+    let detectedCity: BookingLead["city"] = "Delhi";
+    if (locLower.includes("noida") || locLower.includes("greater noida")) detectedCity = "Noida";
+    else if (locLower.includes("gurgaon") || locLower.includes("gurugram")) detectedCity = "Gurgaon";
+    else if (
+      locLower.includes("ghaziabad") ||
+      locLower.includes("indirapuram") ||
+      locLower.includes("vaishali") ||
+      locLower.includes("vasundhara")
+    )
+      detectedCity = "Ghaziabad";
+    else if (locLower.includes("faridabad")) detectedCity = "Faridabad";
+
+    // Smart price estimation based on selected service
+    let quotedPrice = 799;
+    const srvLower = formData.service.toLowerCase();
+    if (srvLower.includes("deep") || srvLower.includes("full service") || srvLower.includes("island full")) {
+      quotedPrice = 1099;
+    } else if (srvLower.includes("island")) {
+      quotedPrice = 1050;
+    } else if (srvLower.includes("hob full") || srvLower.includes("hob deep")) {
+      quotedPrice = 799;
+    } else if (srvLower.includes("hob")) {
+      quotedPrice = 599;
+    } else if (srvLower.includes("microwave") || srvLower.includes("oven")) {
+      quotedPrice = 599;
+    } else if (srvLower.includes("cooktop")) {
+      quotedPrice = 275;
+    } else if (
+      srvLower.includes("repair") ||
+      srvLower.includes("installation") ||
+      srvLower.includes("motor") ||
+      srvLower.includes("uninstallation")
+    ) {
+      quotedPrice = 350;
+    }
+
+    // Save directly to Admin Control Center
+    const newLead: BookingLead = {
+      id: newLeadId,
+      customerName: formData.name.trim(),
+      phone: formData.mobile.trim(),
+      service: formData.service,
+      serviceSlug: formData.service.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+      chimneyBrand: "Kitchen Appliance",
+      location: formData.location.trim(),
+      city: detectedCity,
+      date: new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }),
+      timeSlot: "Doorstep Slot",
+      quotedPrice,
+      status: "Pending",
+      assignedTech: "Unassigned",
+      paymentStatus: "Unpaid",
+      notes: formData.description.trim() || "Website Doorstep Booking Enquiry",
+      createdAt: "Just now",
+    };
+    saveBookingItem(newLead);
+    setSubmittedLeadId(newLeadId);
+    setIsSubmitted(true);
+
     // Form is valid! Generate WhatsApp URL
-    const message = `*Kitchen Chimney Service Enquiry - Royal Kitchen Solution*
+    const message = `*Kitchen Chimney Service Enquiry - Shree Balaji Electronics*
+• Booking ID: ${newLeadId}
 • Name: ${formData.name.trim()}
 • Phone: ${formData.mobile.trim()}
 • Service: ${formData.service}
@@ -95,8 +163,6 @@ export default function ContactBooking() {
     const whatsappUrl = `https://wa.me/${BUSINESS_INFO.whatsappNumber}?text=${encodeURIComponent(
       message
     )}`;
-
-    setIsSubmitted(true);
 
     // Open WhatsApp in a new tab/window
     if (typeof window !== "undefined") {
@@ -123,32 +189,24 @@ export default function ContactBooking() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Direct Contact Info & Hours */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 rounded-2xl bg-royal-black text-white border border-royal-border shadow-xl">
-              <div className="flex items-center gap-3.5 mb-4">
-                <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-royal-gold/40 shrink-0 bg-royal-dark shadow-sm">
+            <div className="p-6 sm:p-8 rounded-2xl bg-royal-black text-white border border-royal-border shadow-xl overflow-hidden">
+              <div className="mb-6">
+                <div className="relative h-12 sm:h-14 w-full max-w-[220px] sm:max-w-[250px]">
                   <Image
-                    src="/images/logo-icon.png"
-                    alt="Royal Kitchen Solution"
+                    src="/images/shree-balaji-logo-trans.png"
+                    alt="Shree Balaji Electronics"
                     fill
-                    sizes="48px"
-                    className="object-contain p-0.5"
+                    sizes="(max-width: 640px) 200px, 250px"
+                    className="object-contain object-left"
                   />
                 </div>
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white leading-tight">
-                    Royal Kitchen
-                  </h3>
-                  <span className="text-xs font-semibold tracking-[0.25em] uppercase text-royal-gold block">
-                    S O L U T I O N
-                  </span>
-                </div>
               </div>
-              <p className="text-sm text-gray-300 mb-8 leading-relaxed">
-                Contact our service desk for fast support, filter cleaning bookings, or
-                urgent chimney breakdown visits.
+              <p className="text-sm text-gray-300 mb-6 leading-relaxed">
+                Contact our Shree Balaji Electronics service desk for fast doorstep support, filter
+                cleaning bookings, or urgent kitchen chimney repair visits.
               </p>
 
               {/* Contact details */}
@@ -179,7 +237,7 @@ export default function ContactBooking() {
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">
-                      WhatsApp Chat
+                      WhatsApp
                     </span>
                     <a
                       href={BUSINESS_INFO.whatsappUrl}
@@ -187,7 +245,7 @@ export default function ContactBooking() {
                       rel="noopener noreferrer"
                       className="block text-lg font-bold text-white hover:text-emerald-400 transition-colors focus:outline-none focus-visible-gold rounded"
                     >
-                      +91 70115 46526
+                      {BUSINESS_INFO.displayPhone}
                     </a>
                     <span className="text-xs text-gray-400">Instant chat &amp; booking</span>
                   </div>
@@ -208,6 +266,23 @@ export default function ContactBooking() {
                     >
                       {BUSINESS_INFO.email}
                     </a>
+                    <span className="text-xs text-gray-400">Direct booking enquiries</span>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-royal-dark border border-royal-gold/40 flex items-center justify-center text-royal-gold shrink-0">
+                    <MapPin className="w-5 h-5 text-royal-gold" />
+                  </div>
+                  <div>
+                    <span className="text-xs uppercase tracking-wider text-gray-400 font-medium">
+                      Service Office / Address
+                    </span>
+                    <p className="text-sm font-semibold text-white leading-relaxed">
+                      {BUSINESS_INFO.address}
+                    </p>
+                    <span className="text-xs text-gray-400">Doorstep Assistance Delhi NCR</span>
                   </div>
                 </div>
 
@@ -249,14 +324,37 @@ export default function ContactBooking() {
               </p>
 
               {isSubmitted && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-sm flex items-start gap-3 animate-in fade-in">
+                <div className="mb-6 p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-sm flex items-start gap-3.5 shadow-sm animate-in fade-in">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold">Enquiry Prepared!</p>
-                    <p className="text-xs text-emerald-700 mt-0.5">
-                      Your WhatsApp application has been opened with your details. If it
-                      did not open automatically, please click below or call us at 7011546526.
+                    <div className="flex items-center gap-2">
+                      <p className="font-bold text-emerald-950">Service Request Booked &amp; Logged!</p>
+                      {submittedLeadId && (
+                        <span className="text-[11px] font-mono bg-emerald-200/80 text-emerald-900 px-2 py-0.5 rounded font-bold">
+                          Lead #{submittedLeadId}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
+                      Your enquiry has been successfully registered in our Admin Control Center. A technician has been notified and our dispatch team will confirm your slot shortly.
                     </p>
+                    <p className="text-xs text-emerald-700 mt-2 font-medium">
+                      WhatsApp chat was also initiated for quick confirmation. If it did not open automatically, you can call us directly at <strong>{BUSINESS_INFO.displayPhone}</strong>.
+                    </p>
+                    <div className="mt-3 pt-2.5 border-t border-emerald-200/80 flex flex-wrap items-center gap-3">
+                      <a
+                        href="/admin?tab=bookings"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-semibold shadow-xs transition"
+                      >
+                        <span>Open Admin Leads Dashboard</span>
+                        <span>&rarr;</span>
+                      </a>
+                      <span className="text-[11px] text-emerald-800">
+                        (Live status: Pending &bull; Ref #{submittedLeadId})
+                      </span>
+                    </div>
                   </div>
                 </div>
               )}

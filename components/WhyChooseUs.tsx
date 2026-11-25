@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
             <span>Our Commitment</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
-            Why Choose Royal Kitchen Solution
+            Why Choose Shree Balaji Electronics
           </h2>
           <div className="w-16 h-1 bg-royal-gold mx-auto mb-6 rounded-full" />
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light">

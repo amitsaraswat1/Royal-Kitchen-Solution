@@ -23,9 +23,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Kitchen Chimney Service & Repair | Royal Kitchen Solution",
+  title: "Kitchen Chimney Service & Repair | Shree Balaji Electronics",
   description:
-    "Book professional kitchen chimney cleaning, repair, installation and maintenance services with Royal Kitchen Solution. Call 7011546526.",
+    "Book professional kitchen chimney cleaning, repair, installation and maintenance services with Shree Balaji Electronics. Call +91 87968 86094.",
   keywords: [
     "Kitchen Chimney Service",
     "Chimney Cleaning Service",
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     "Filter Replacement",
     "Motor Repair",
   ],
-  authors: [{ name: "Royal Kitchen Solution" }],
-  creator: "Royal Kitchen Solution",
-  publisher: "Royal Kitchen Solution",
-  metadataBase: new URL("https://royalkitchensolution.com"),
+  authors: [{ name: "Shree Balaji Electronics" }],
+  creator: "Shree Balaji Electronics",
+  publisher: "Shree Balaji Electronics",
+  metadataBase: new URL("https://shreebalajielectronics.com"),
   alternates: {
     canonical: "/",
   },
@@ -53,26 +53,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://royalkitchensolution.com",
-    siteName: "Royal Kitchen Solution",
-    title: "Kitchen Chimney Service & Repair | Royal Kitchen Solution",
+    url: "https://shreebalajielectronics.com",
+    siteName: "Shree Balaji Electronics",
+    title: "Kitchen Chimney & Appliance Service | Shree Balaji Electronics",
     description:
-      "Book professional kitchen chimney cleaning, repair, installation and maintenance services with Royal Kitchen Solution. Call 7011546526.",
+      "Book professional kitchen chimney cleaning, repair, installation and maintenance services with Shree Balaji Electronics. Call +91 87968 86094.",
     images: [
       {
-        url: "/images/hero-bg.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Royal Kitchen Solution - Professional Kitchen Chimney Services",
+        url: "/images/logo-full.png",
+        width: 1024,
+        height: 341,
+        alt: "Shree Balaji Electronics - Professional Kitchen Chimney Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kitchen Chimney Service & Repair | Royal Kitchen Solution",
+    title: "Kitchen Chimney & Appliance Service | Shree Balaji Electronics",
     description:
-      "Book professional kitchen chimney cleaning, repair, installation and maintenance services with Royal Kitchen Solution. Call 7011546526.",
-    images: ["/images/hero-bg.jpg"],
+      "Book professional kitchen chimney cleaning, repair, installation and maintenance services with Shree Balaji Electronics. Call +91 87968 86094.",
+    images: ["/images/logo-full.png"],
   },
 };
 
@@ -87,7 +87,15 @@ export default function RootLayout({
     name: BUSINESS_INFO.name,
     telephone: `+91${BUSINESS_INFO.phone}`,
     email: BUSINESS_INFO.email,
-    url: "https://royalkitchensolution.com",
+    url: "https://shreebalajielectronics.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "C2 - MAHINDRA PARK, GROUND FLOOR",
+      postalCode: "110059",
+      addressLocality: "New Delhi",
+      addressRegion: "Delhi",
+      addressCountry: "IN",
+    },
   };
 
   return (
