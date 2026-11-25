@@ -128,11 +128,11 @@ export default function ServiceablePinCodes() {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-gold/10 border border-royal-gold/30 text-royal-gold text-xs sm:text-sm font-semibold mb-3 shadow-xs">
             <MapPin className="w-4 h-4 text-royal-gold" />
-            <span>Doorstep Coverage Area</span>
+            <span>Service Available Areas</span>
           </div>
 
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-royal-black tracking-tight mb-3">
-            Serviceable PIN Codes &amp; Localities
+            Service Available PIN Codes &amp; Localities
           </h2>
           <div className="w-16 h-1 bg-royal-gold mx-auto mb-4 rounded-full" />
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
@@ -202,9 +202,15 @@ export default function ServiceablePinCodes() {
                 {/* Top Badge: PIN Code */}
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-royal-black text-royal-gold font-mono font-bold text-xs tracking-wider">
-                      <MapPin className="w-3 h-3 text-royal-gold" />
-                      {area.pincode}
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg font-mono font-bold text-xs tracking-wider border shadow-xs ${
+                        area.isHub
+                          ? "bg-white border-royal-gold text-royal-black"
+                          : "bg-white border-gray-300 text-royal-black"
+                      }`}
+                    >
+                      <MapPin className="w-3.5 h-3.5 text-royal-gold shrink-0" />
+                      <span>{area.pincode}</span>
                     </span>
 
                     <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">
@@ -249,7 +255,7 @@ export default function ServiceablePinCodes() {
         {/* Bottom Assurance Banner */}
         <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-royal-black text-white border border-royal-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-royal-dark border border-royal-gold/40 flex items-center justify-center text-royal-gold shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-white border border-royal-gold flex items-center justify-center text-royal-gold shrink-0 shadow-sm">
               <ShieldCheck className="w-5 h-5 text-royal-gold" />
             </div>
             <div>
