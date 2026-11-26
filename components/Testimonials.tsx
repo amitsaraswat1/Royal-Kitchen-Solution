@@ -8,6 +8,7 @@ import {
   ChevronRight,
   BadgeCheck,
   MapPin,
+  ShieldCheck,
 } from "lucide-react";
 import { TESTIMONIALS_DATA, TestimonialItem } from "@/data/content";
 
@@ -26,6 +27,14 @@ export default function Testimonials() {
   const [isPaused, setIsPaused] = useState(false);
 
   const totalItems = TESTIMONIALS_DATA?.length ?? 0;
+
+  const averageRating =
+    totalItems > 0
+      ? (
+          TESTIMONIALS_DATA.reduce((sum, item) => sum + item.rating, 0) /
+          totalItems
+        ).toFixed(1)
+      : "4.8";
 
   // Responsive items per view
   useEffect(() => {
@@ -99,7 +108,10 @@ export default function Testimonials() {
 
           {/* Overall Rating Summary Bar */}
           <div className="inline-flex flex-wrap items-center justify-center gap-3 px-5 py-2.5 rounded-2xl bg-royal-surface border border-royal-gold/30 shadow-xs">
-            <div className="flex items-center gap-1" aria-label="4.9 out of 5 stars">
+            <div
+              className="flex items-center gap-1"
+              aria-label={`${averageRating} out of 5 stars`}
+            >
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
@@ -108,12 +120,12 @@ export default function Testimonials() {
               ))}
             </div>
             <span className="text-sm font-bold text-royal-black">
-              4.9 <span className="text-gray-500 font-normal">/ 5.0</span>
+              {averageRating} <span className="text-gray-500 font-normal">/ 5.0</span>
             </span>
             <span className="hidden sm:inline text-gray-300">|</span>
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
               <BadgeCheck className="w-4 h-4 text-emerald-600" />
-              Verified Doorstep Reviews
+              Verified 4★ &amp; 5★ Doorstep Reviews
             </span>
           </div>
         </div>
@@ -144,7 +156,7 @@ export default function Testimonials() {
           </button>
 
           {/* Slider Track Viewport */}
-          <div className="overflow-hidden py-2">
+          <div className="overflow-hidden py-3">
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{
@@ -157,75 +169,84 @@ export default function Testimonials() {
                   className="shrink-0 px-3"
                   style={{ width: `${100 / itemsPerView}%` }}
                 >
-                  <article className="h-full bg-royal-surface rounded-2xl p-6 sm:p-7 border border-gray-200/90 hover:border-royal-gold/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between shadow-sm">
-                    <div>
-                      {/* Top Row: Stars & Quote Icon */}
-                      <div className="flex items-center justify-between gap-2 mb-4">
-                        <div className="flex items-center gap-1.5">
-                          <div
-                            className="flex items-center gap-0.5"
-                            aria-label={`${item.rating} out of 5 stars`}
-                          >
-                            {[...Array(5)].map((_, starIdx) => (
-                              <Star
-                                key={starIdx}
-                                className={`w-4 h-4 ${
-                                  starIdx < item.rating
-                                    ? "text-royal-gold fill-royal-gold"
-                                    : "text-gray-300"
-                                }`}
-                              />
-                            ))}
+                  <article className="h-full bg-white rounded-2xl border border-gray-200/90 hover:border-royal-gold/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    {/* Top Accent Strip */}
+                    <div className="h-1 w-full bg-gradient-to-r from-royal-black via-royal-gold to-royal-black opacity-85 group-hover:opacity-100 transition-opacity" />
+
+                    <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+                      <div>
+                        {/* Customer Profile Header */}
+                        <div className="flex items-start justify-between gap-3 mb-4">
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-11 h-11 rounded-full bg-royal-black text-royal-gold font-bold text-xs flex items-center justify-center shrink-0 ring-2 ring-royal-gold/30">
+                              {getInitials(item.customerName)}
+                            </div>
+                            <div className="min-w-0">
+                              <div className="flex items-center gap-1.5">
+                                <h4 className="font-bold text-sm text-royal-black truncate">
+                                  {item.customerName}
+                                </h4>
+                                <BadgeCheck
+                                  className="w-4 h-4 text-emerald-600 shrink-0"
+                                  aria-label="Verified Customer"
+                                />
+                              </div>
+                              <p className="text-[11px] text-gray-500 flex items-center gap-1 truncate mt-0.5">
+                                <MapPin className="w-3 h-3 text-royal-gold shrink-0" />
+                                <span className="truncate">{item.location}</span>
+                              </p>
+                            </div>
                           </div>
-                          <span className="text-xs font-bold text-royal-black ml-1">
-                            {item.rating.toFixed(1)}
+
+                          <div className="w-8 h-8 rounded-lg bg-royal-surface border border-royal-gold/25 flex items-center justify-center text-royal-gold shrink-0">
+                            <MessageSquareQuote className="w-4 h-4" />
+                          </div>
+                        </div>
+
+                        {/* Rating Pill + Service Tag */}
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3.5 border-b border-gray-100">
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-royal-surface border border-gray-200/80">
+                            <div
+                              className="flex items-center gap-0.5"
+                              aria-label={`${item.rating} out of 5 stars`}
+                            >
+                              {[...Array(5)].map((_, starIdx) => (
+                                <Star
+                                  key={starIdx}
+                                  className={`w-3.5 h-3.5 ${
+                                    starIdx < item.rating
+                                      ? "text-royal-gold fill-royal-gold"
+                                      : "text-gray-300 fill-gray-200"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-xs font-bold text-royal-black ml-0.5">
+                              {item.rating.toFixed(1)}
+                            </span>
+                          </div>
+
+                          <span className="inline-block px-2.5 py-1 rounded-full bg-amber-50/90 border border-amber-200/80 text-amber-800 text-[10px] font-semibold tracking-tight">
+                            {item.serviceTaken}
                           </span>
                         </div>
 
-                        <div className="w-9 h-9 rounded-xl bg-white border border-royal-gold/30 flex items-center justify-center text-royal-gold shadow-xs shrink-0">
-                          <MessageSquareQuote className="w-4 h-4" />
-                        </div>
+                        {/* Review Text */}
+                        <p className="text-[13.5px] sm:text-sm text-gray-700 leading-relaxed mb-5">
+                          &ldquo;{item.reviewText}&rdquo;
+                        </p>
                       </div>
 
-                      {/* Service Taken Pill */}
-                      <div className="mb-3.5">
-                        <span className="inline-block px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-[11px] font-semibold">
-                          {item.serviceTaken}
+                      {/* Card Footer */}
+                      <div className="pt-3.5 border-t border-gray-100 flex items-center justify-between text-[11px]">
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-semibold">
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                          Verified Doorstep Visit
+                        </span>
+                        <span className="text-gray-400 font-medium">
+                          {item.dateNote}
                         </span>
                       </div>
-
-                      {/* Review Text */}
-                      <p className="text-sm text-gray-700 leading-relaxed mb-6">
-                        &ldquo;{item.reviewText}&rdquo;
-                      </p>
-                    </div>
-
-                    {/* Footer: Customer Details */}
-                    <div className="pt-4 border-t border-gray-200/70 flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-10 h-10 rounded-full bg-royal-black text-royal-gold font-bold text-xs flex items-center justify-center shrink-0 border border-royal-gold/40">
-                          {getInitials(item.customerName)}
-                        </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-1.5">
-                            <h4 className="font-semibold text-sm text-royal-black truncate">
-                              {item.customerName}
-                            </h4>
-                            <BadgeCheck
-                              className="w-4 h-4 text-emerald-600 shrink-0"
-                              aria-label="Verified Customer"
-                            />
-                          </div>
-                          <p className="text-[11px] text-gray-500 flex items-center gap-1 truncate">
-                            <MapPin className="w-3 h-3 text-royal-gold shrink-0" />
-                            <span className="truncate">{item.location}</span>
-                          </p>
-                        </div>
-                      </div>
-
-                      <span className="text-[11px] text-gray-500 font-medium whitespace-nowrap shrink-0">
-                        {item.dateNote}
-                      </span>
                     </div>
                   </article>
                 </div>

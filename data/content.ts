@@ -443,7 +443,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     customerName: "Priya Malhotra",
     location: "Janakpuri, West Delhi",
     serviceTaken: "Faber Motor & Suction Repair",
-    rating: 5,
+    rating: 4,
     reviewText:
       "Our Faber chimney motor was making a loud vibrating noise and suction had dropped completely. Shree Balaji Electronics diagnosed the blower imbalance on the spot and fixed it without pushing unnecessary part replacements. Very transparent pricing.",
     isPlaceholder: false,
@@ -476,7 +476,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     customerName: "Vikramjeet Singh",
     location: "Punjabi Bagh, West Delhi",
     serviceTaken: "Sunflame Filterless Deep Service",
-    rating: 5,
+    rating: 4,
     reviewText:
       "Extremely polite and well-trained technician. My Sunflame filterless chimney oil collector and internal fan were completely choked. They used proper degreasing solution and cleaned every corner cleanly. Worth every rupee.",
     isPlaceholder: false,
