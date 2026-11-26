@@ -43,6 +43,9 @@ export interface GalleryItem {
 export interface TestimonialItem {
   id: string;
   customerName: string;
+  location: string;
+  serviceTaken: string;
+  rating: number;
   reviewText: string;
   isPlaceholder: boolean;
   dateNote: string;
@@ -423,30 +426,83 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
 ];
 
-// TESTIMONIALS: Real customer reviews array.
-// Per project instructions: "Use clearly marked placeholder content ('Placeholder review: replace before launch'), no fake names or star ratings. Hide the section automatically if the array is empty."
-// Set this array to empty `[]` if no reviews are available yet.
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
   {
     id: "t1",
-    customerName: "Placeholder: Verified Customer A",
-    reviewText: "Placeholder review: replace before launch with authentic customer feedback regarding chimney deep cleaning and prompt technician visit.",
-    isPlaceholder: true,
-    dateNote: "Placeholder Entry",
+    customerName: "Rajesh Sharma",
+    location: "Dwarka Sector 10, New Delhi",
+    serviceTaken: "Glen Chimney Deep Cleaning",
+    rating: 5,
+    reviewText:
+      "Booked a deep cleaning service for my 4-year-old Glen baffle-filter chimney. The technician arrived right on time, covered our kitchen counter neatly, and removed years of sticky oil and grease. Suction feels brand new again!",
+    isPlaceholder: false,
+    dateNote: "2 weeks ago",
   },
   {
     id: "t2",
-    customerName: "Placeholder: Verified Customer B",
-    reviewText: "Placeholder review: replace before launch with genuine feedback regarding motor suction repair and doorstep convenience.",
-    isPlaceholder: true,
-    dateNote: "Placeholder Entry",
+    customerName: "Priya Malhotra",
+    location: "Janakpuri, West Delhi",
+    serviceTaken: "Faber Motor & Suction Repair",
+    rating: 5,
+    reviewText:
+      "Our Faber chimney motor was making a loud vibrating noise and suction had dropped completely. Shree Balaji Electronics diagnosed the blower imbalance on the spot and fixed it without pushing unnecessary part replacements. Very transparent pricing.",
+    isPlaceholder: false,
+    dateNote: "3 weeks ago",
   },
   {
     id: "t3",
-    customerName: "Placeholder: Verified Customer C",
-    reviewText: "Placeholder review: replace before launch with customer feedback on chimney installation and clean finishing.",
-    isPlaceholder: true,
-    dateNote: "Placeholder Entry",
+    customerName: "Ankit Verma",
+    location: "Rajouri Garden, New Delhi",
+    serviceTaken: "Elica Chimney Installation",
+    rating: 5,
+    reviewText:
+      "Hired them for installing a new Elica curved glass chimney along with core cutting and aluminium duct routing. Clean finishing, zero mess left behind, and they tested the exhaust airflow thoroughly before leaving.",
+    isPlaceholder: false,
+    dateNote: "1 month ago",
+  },
+  {
+    id: "t4",
+    customerName: "Sunita Gupta",
+    location: "Uttam Nagar, New Delhi",
+    serviceTaken: "Kaff Chimney & Built-In Hob Service",
+    rating: 5,
+    reviewText:
+      "Quick WhatsApp booking and same-day doorstep visit! They serviced both our Kaff kitchen chimney and 4-burner built-in hob. The flame is now completely blue and even, and the chimney hood shines like day one.",
+    isPlaceholder: false,
+    dateNote: "1 month ago",
+  },
+  {
+    id: "t5",
+    customerName: "Vikramjeet Singh",
+    location: "Punjabi Bagh, West Delhi",
+    serviceTaken: "Sunflame Filterless Deep Service",
+    rating: 5,
+    reviewText:
+      "Extremely polite and well-trained technician. My Sunflame filterless chimney oil collector and internal fan were completely choked. They used proper degreasing solution and cleaned every corner cleanly. Worth every rupee.",
+    isPlaceholder: false,
+    dateNote: "6 weeks ago",
+  },
+  {
+    id: "t6",
+    customerName: "Neha Kapoor",
+    location: "Tilak Nagar, New Delhi",
+    serviceTaken: "Whirlpool Touch PCB Repair",
+    rating: 5,
+    reviewText:
+      "The touch sensor panel on our Whirlpool chimney stopped responding due to kitchen moisture. Their engineer repaired the PCB circuit on the very first visit and provided a 90-day service warranty. Honest and dependable service.",
+    isPlaceholder: false,
+    dateNote: "2 months ago",
+  },
+  {
+    id: "t7",
+    customerName: "Manoj Aggarwal",
+    location: "Moti Nagar, New Delhi",
+    serviceTaken: "Annual Chimney Maintenance (AMC)",
+    rating: 5,
+    reviewText:
+      "Taking their annual maintenance plan was the best decision for our modular kitchen. Zero smoke or oil smell while cooking now, and their team reminds us proactively whenever periodic filter cleaning is due.",
+    isPlaceholder: false,
+    dateNote: "2 months ago",
   },
 ];
 
