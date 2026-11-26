@@ -90,9 +90,9 @@ export default function RootLayout({
     url: "https://shreebalajielectronics.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "C2 - GROUND FLOOR MAHINDRA PARK, Uttam Nagar",
+      streetAddress: "C2 - Ground Floor Mahindra Park, Uttam Nagar",
       postalCode: "110059",
-      addressLocality: "Uttam Nagar, Delhi",
+      addressLocality: "West Delhi, Delhi",
       addressRegion: "Delhi",
       addressCountry: "IN",
     },
