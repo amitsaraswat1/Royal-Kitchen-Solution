@@ -517,80 +517,64 @@ export default function ContactBooking() {
               </form>
             </div>
 
-            {/* Brand Partnerships Section */}
-            <div className="mt-6 bg-white rounded-2xl border border-gray-200/90 shadow-md overflow-hidden">
-              <div className="h-1.5 w-full bg-gradient-to-r from-royal-gold/60 via-royal-gold to-royal-gold/60" />
-              <div className="p-6 sm:p-7">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-royal-black text-royal-gold flex items-center justify-center shrink-0 shadow-xs">
-                      <Award className="w-5 h-5" />
+            {/* Brand Partnerships Section - Compact Executive Showcase */}
+            <div className="mt-5 bg-white rounded-2xl border border-gray-200/90 shadow-sm overflow-hidden">
+              <div className="h-1 w-full bg-gradient-to-r from-royal-black via-royal-gold to-royal-black opacity-85" />
+              <div className="p-4 sm:p-5">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-gray-100">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-royal-black text-royal-gold flex items-center justify-center shrink-0">
+                      <Award className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80 mb-1">
-                        Multi-Brand Service Expertise
-                      </span>
-                      <h4 className="font-serif text-xl font-bold text-royal-black leading-tight">
+                      <h4 className="font-serif text-base sm:text-lg font-bold text-royal-black leading-tight">
                         Brands That Trust Our Work
                       </h4>
+                      <p className="text-[11px] text-gray-500">
+                        Multi-brand doorstep repair, deep cleaning &amp; OEM spares
+                      </p>
                     </div>
                   </div>
-                  <div className="text-left sm:text-right shrink-0">
-                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full inline-flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      100% Genuine OEM Spares
-                    </span>
-                  </div>
+                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    100% Genuine Spares
+                  </span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-600 mt-4 mb-5 leading-relaxed">
-                  Certified doorstep deep cleaning, motor diagnostics, touch PCB repair, and genuine spare parts support across all leading kitchen chimney brands:
-                </p>
-
-                {/* 6 Logos Grid (3x2 on tablet/desktop, 2x3 on mobile for clean spacing) */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+                {/* 6 Logos Compact Strip (3x2 on mobile, 6x1 on sm+) */}
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5 mt-3.5">
                   {PARTNERSHIP_BRANDS.map((brand) => (
                     <div
                       key={brand.name}
-                      className="bg-royal-surface/60 hover:bg-white rounded-xl p-4 border border-gray-200/80 hover:border-royal-gold/70 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-center justify-center text-center group"
+                      title={`${brand.name} - ${brand.tagline}`}
+                      className="bg-royal-surface/70 hover:bg-white rounded-xl py-2.5 px-2 border border-gray-200/80 hover:border-royal-gold/70 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center h-14 group"
                     >
-                      <div className="h-11 w-full flex items-center justify-center px-2">
-                        <Image
-                          src={brand.logo}
-                          alt={brand.alt}
-                          width={140}
-                          height={40}
-                          unoptimized
-                          className="max-h-9 max-w-[110px] w-auto h-auto object-contain transition-transform duration-200 group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="mt-2.5 pt-2 border-t border-gray-200/60 w-full flex items-center justify-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-                        <span className="text-xs font-bold text-royal-black tracking-tight group-hover:text-amber-700">
-                          {brand.name}
-                        </span>
-                        <span className="text-[10px] text-gray-500 font-medium">
-                          &bull; Care
-                        </span>
-                      </div>
+                      <Image
+                        src={brand.logo}
+                        alt={brand.alt}
+                        width={110}
+                        height={32}
+                        unoptimized
+                        className="max-h-7 max-w-[82px] w-auto h-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                      />
                     </div>
                   ))}
                 </div>
 
-                {/* Trust Badges Row */}
-                <div className="mt-5 bg-royal-surface rounded-xl py-3 px-4 border border-gray-200/70 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center">
-                  <div className="flex items-center justify-center gap-1.5 text-xs text-gray-700 font-semibold">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Original Brand Components</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-1.5 text-xs text-gray-700 font-semibold">
-                    <Award className="w-4 h-4 text-amber-600 shrink-0" />
-                    <span>Factory-Trained Engineers</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-1.5 text-xs text-gray-700 font-semibold">
-                    <CheckCircle2 className="w-4 h-4 text-royal-gold shrink-0" />
-                    <span>90-Day Post-Service Warranty</span>
-                  </div>
+                {/* Slim Trust Footer */}
+                <div className="mt-3.5 pt-2.5 border-t border-gray-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-gray-600 font-medium">
+                  <span className="inline-flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    Original Components
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <Award className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    Factory-Trained Technicians
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-royal-gold shrink-0" />
+                    90-Day Service Warranty
+                  </span>
                 </div>
               </div>
             </div>
