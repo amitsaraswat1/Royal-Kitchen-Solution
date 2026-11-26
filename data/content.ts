@@ -71,10 +71,10 @@ export const BUSINESS_INFO = {
   callLink: "tel:+918796886094",
   email: "booking@shreebalajielectronics.com",
   emailLink: "mailto:booking@shreebalajielectronics.com",
-  address: "C2 - MAHINDRA PARK, GROUND FLOOR - 110059",
+  address: "C2 - GROUND FLOOR MAHINDRA PARK, Uttam Nagar, Delhi - 110059",
   whatsappNumber: "918796886094",
   whatsappUrl: "https://wa.me/918796886094",
-  hours: "Monday - Sunday: 9:00 AM - 8:00 PM",
+  hours: "Monday - Sunday: 10:00 AM - 7:00 PM",
 };
 
 export const NAV_LINKS = [
